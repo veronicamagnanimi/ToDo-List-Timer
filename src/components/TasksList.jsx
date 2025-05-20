@@ -31,6 +31,7 @@ const reducer = (state, action) => {
 const TasksList = () => {
   const [input, setInput] = useState("");
   const [tasks, dispatch] = useReducer(reducer, [], initialTasks); //dispatch invia l'azione al reducer per gestire lo stato
+  const [error, setError] = useState("");
 
 //salvo sul localStorage
   useEffect(() => {
@@ -39,9 +40,13 @@ const TasksList = () => {
 
 //funzione per aggiungere un task
   const addTask = () => {
-    if (input.trim() === "") return;
+    if (input.trim() === "") {
+      setError("⚠️Inserisci un'attività!");
+      return;
+    }
     dispatch({ type: "ADD", payload: input });
     setInput("");
+    setError("");
   };
 
 //messaggio per il completamento
@@ -57,6 +62,7 @@ const allTasks = tasks.length > 0 && tasks.every((task) => task.completed);
         onChange={(e) => setInput(e.target.value)}/>
       <button onClick={addTask} className="btn">➕ Aggiungi</button>
       </div>
+      {error && <p style={{ color: "red", marginTop: "0.5rem" }}>{error}</p>}
       {/* tasks + bottone rimuovi */}
       {allTasks ? (
         <h5 className="mt-4">🎉Hai completato tutte le attività!</h5>  
