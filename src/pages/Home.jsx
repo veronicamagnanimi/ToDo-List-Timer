@@ -1,5 +1,5 @@
 import Timer from "../components/timer";
-import TaskList from "../components/taskList";
+import TasksList from "../components/TasksList";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
         <div className="text-center my-4">
           <Timer />
         </div>
-        <TaskList />
+        <TasksList />
       </div>
     </>
   );

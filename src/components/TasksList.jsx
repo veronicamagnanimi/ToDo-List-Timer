@@ -27,8 +27,8 @@ const reducer = (state, action) => {
   }
 };
 
-//stato
-const TaskList = () => {
+
+const TasksList = () => {
   const [input, setInput] = useState("");
   const [tasks, dispatch] = useReducer(reducer, [], initialTasks); //dispatch invia l'azione al reducer per gestire lo stato
 
@@ -44,16 +44,20 @@ const TaskList = () => {
     setInput("");
   };
 
+//messaggio per il completamento
+const allTasks = tasks.every((task) => task.completed); 
+  
+
   return (
-    <div className="container mt-4 gradient-bg text-center">
+    <div className="container mt-4 py-3 gradient-bg text-center">
       <h2>📋Le tue attività</h2>
 
       <input type="text" className="my-3" placeholder="Nuova attività" value={input}
         onChange={(e) => setInput(e.target.value)}/>
       <button onClick={addTask}>Aggiungi</button>
 
-      {tasks.length === 0 ? (
-        <p>🎉Hai completato tutte le attività!</p> //da gestire 
+      {allTasks ? (
+        <p>🎉Hai completato tutte le attività!</p>  
       ) : (
         <ul>
           {tasks.map((task) => (
@@ -72,4 +76,4 @@ const TaskList = () => {
   );
 };
 
-export default TaskList;
+export default TasksList;
