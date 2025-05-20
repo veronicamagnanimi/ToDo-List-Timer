@@ -1,5 +1,5 @@
-import Timer from "../components/timer";
 import TasksList from "../components/TasksList";
+import Timer from "../components/Timer";
 
 const Home = () => {
   return (
