@@ -49,6 +49,27 @@ ul {
   border-radius: 1rem;
 }
 
+/*HEADER*/
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #844ce1;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav-item a,
+.nav-item button {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-item a:hover,
+.nav-item button:hover {
+  transform: scale(1.1);
+  color: #000000;
+}
+
 /* TASK */
  .task-item {
   display: flex;
