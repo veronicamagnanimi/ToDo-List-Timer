@@ -31,7 +31,7 @@ const Timer = () => {
 
 
   return (
-    <h3>⏲️Tempo trascorso: {time} secondi⏲️</h3>
+    <h3 className='mb-4'>⏲️Tempo trascorso: {time} secondi⏲️</h3>
   )
 
 }

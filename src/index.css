@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -15,11 +16,29 @@ ul {
     list-style: none;
 }
 
+.main-box {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(161, 140, 209, 0.3);
+}
+
 /* TITLE */
 .gradient-bg {
   background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
   color: #222;
-  box-shadow: 0 2px 16px rgba(161, 140, 209, 0.15);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(161, 140, 209, 0.2);
+}
+
+.separator {
+  border: none;
+  height: 2px;
+  width: 60%;
+  margin: 1rem auto 2rem;
+  background: linear-gradient(to right, #4d2f93, #975cc7);
+  border-radius: 1rem;
 }
 
 /* TASK */
@@ -33,4 +52,64 @@ ul {
 
 .task-completed {
   text-decoration: line-through;
+}
+
+.task-item {
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 10;
+    transform: translateY(0);
+  }
+}
+
+.task-item:hover {
+  background-color: rgba(161, 140, 209, 0.1);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/*BUTTONS*/
+.btn {
+  background-color: #a791d5;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #a18cd1;
+  }
+}
+
+.task-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1rem;;
+}
+
+.input-task {
+  flex: 1;
+  max-width: 300px;
+  height: 2.2rem;
+  font-size: 1rem;
+  padding: 0 0.8rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-task:focus {
+  border-color: #8260d4;
 }

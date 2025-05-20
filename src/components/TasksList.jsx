@@ -49,12 +49,14 @@ const allTasks = tasks.every((task) => task.completed);
   
 
   return (
-    <div className="container mt-4 py-3 gradient-bg text-center">
-      <h2>📋Le tue attività</h2>
-
-      <input type="text" className="my-3" placeholder="Nuova attività" value={input}
+    <div className="container text-center">
+      <h2 className="mb-3">📋Le tue attività</h2>
+      
+      <div className="task-input-wrapper">
+      <input type="text" className="input-task" placeholder="Inserisci una nuova attività" value={input}
         onChange={(e) => setInput(e.target.value)}/>
-      <button onClick={addTask}>Aggiungi</button>
+      <button onClick={addTask} className="btn">➕ Aggiungi</button>
+      </div>
 
       {allTasks ? (
         <p>🎉Hai completato tutte le attività!</p>  
@@ -62,12 +64,12 @@ const allTasks = tasks.every((task) => task.completed);
         <ul>
           {tasks.map((task) => (
             <li key={task.id} className="task-item">
-              <input type="checkbox" checked={task.completed}
+              <input type="checkbox" checked={task.completed} className="my-3"
                 onChange={() => dispatch({ type: "TOGGLE", payload: task.id })}/>
               <span className={`task-text ${task.completed ? "task-completed" : ""}`}>
                 {task.text}
               </span>
-              <button onClick={() => dispatch({ type: "REMOVE", payload: task.id })}>Rimuovi</button>
+              <button onClick={() => dispatch({ type: "REMOVE", payload: task.id })} className="btn">➖ Rimuovi</button>
             </li>
           ))}
         </ul>
