@@ -24,11 +24,6 @@ const Timer = () => {
     return () => clearInterval(interval);
   }, []);
 
-  //salvo il valore aggiornato su session storage
-  useEffect(() => {
-    sessionStorage.setItem('time', time);
-  }, [time]);
-
 
   return (
     <h3 className='mb-4'>⏲️Tempo trascorso: {time} secondi⏲️</h3>

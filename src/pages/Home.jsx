@@ -9,7 +9,7 @@ const Home = () => {
           <div className="main-box">
             <Timer />
           <div className="gradient-bg text-center py-4 rounded">
-            <h1 class>ToDo List</h1>
+            <h1>ToDo List</h1>
             <hr className="separator" />
             <TasksList />
             </div>

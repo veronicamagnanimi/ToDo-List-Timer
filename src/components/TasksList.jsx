@@ -45,19 +45,19 @@ const TasksList = () => {
   };
 
 //messaggio per il completamento
-const allTasks = tasks.every((task) => task.completed); 
+const allTasks = tasks.length > 0 && tasks.every((task) => task.completed); 
   
 
   return (
     <div className="container text-center">
       <h2 className="mb-3">📋Le tue attività</h2>
-      
+      {/* input aggiungi */}
       <div className="task-input-wrapper">
       <input type="text" className="input-task" placeholder="Inserisci una nuova attività" value={input}
         onChange={(e) => setInput(e.target.value)}/>
       <button onClick={addTask} className="btn">➕ Aggiungi</button>
       </div>
-
+      {/* tasks + bottone rimuovi */}
       {allTasks ? (
         <h5 className="mt-4">🎉Hai completato tutte le attività!</h5>  
       ) : (

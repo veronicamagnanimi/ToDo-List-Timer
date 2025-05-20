@@ -106,22 +106,6 @@ ul {
   margin: 0;
 }
 
-/*BUTTONS*/
-.btn {
-  background-color: #a791d5;
-  color: #fff;
-  border: none;
-  border-radius: 0.4rem;
-  margin: 0 0.5rem;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: #a18cd1;
-  }
-}
-
 .task-input-wrapper {
   display: flex;
   justify-content: center;
@@ -144,6 +128,22 @@ ul {
 
 .input-task:focus {
   border-color: #8260d4;
+}
+
+/*BUTTONS*/
+.btn {
+  background-color: #a791d5;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #a18cd1;
+  }
 }
 
 /*MEDIA QUERY*/
