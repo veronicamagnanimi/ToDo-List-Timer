@@ -59,7 +59,7 @@ const allTasks = tasks.every((task) => task.completed);
       </div>
 
       {allTasks ? (
-        <p>🎉Hai completato tutte le attività!</p>  
+        <h5 className="mt-4">🎉Hai completato tutte le attività!</h5>  
       ) : (
         <ul>
           {tasks.map((task) => (
