@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
     //stati per username, password e messaggio di errore vuoti
@@ -7,6 +7,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  //quando il token scade
+  useEffect(() => {
+  if (location.state?.sessionExpired) { //controllo se la sessione è scaduta
+    setError("⏱️ La sessione è scaduta. Effettua di nuovo l'accesso.");
+     window.history.replaceState({}, document.title); //rimuovo lo stato dalla history
+  }
+}, [location.state]); //passo location come dipendenza
 
   //funzione per gestire il login
   const handleLogin = (e) => { 
@@ -51,7 +60,7 @@ const Login = () => {
           value={password}
           onChange={e => setPassword(e.target.value)} //aggiorno lo stato password
           autoComplete="off" className="input-task"/><br />
-        <button type="submit" className="btn mt-1">Accedi</button>
+        <button type="submit" className="btn mt-1 mb-4">Accedi</button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
       </div>

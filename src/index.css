@@ -71,7 +71,6 @@ ul {
 }
 
 /*LOGIN*/
-/* LOGIN FORM */
 .login-form {
   max-width: 400px;
   margin: 2rem auto;
@@ -90,7 +89,7 @@ ul {
 
 .login-form .input-task {
   display: block;
-  margin: 0.5rem auto;
+  margin: 0.3rem auto;
   width: 100%;
 }
 
