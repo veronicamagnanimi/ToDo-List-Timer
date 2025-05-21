@@ -70,6 +70,31 @@ ul {
   color: #000000;
 }
 
+/*LOGIN*/
+/* LOGIN FORM */
+.login-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px #a18cd14d;
+}
+
+.login-form h1 {
+  margin-bottom: 1rem;
+  font-size: 1,5rem;
+  font-weight: bold;;
+  color: #4d2f93;
+}
+
+.login-form .input-task {
+  display: block;
+  margin: 0.5rem auto;
+  width: 100%;
+}
+
+
 /* TASK */
  .task-item {
   display: flex;
