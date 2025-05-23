@@ -1,8 +1,11 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, set } from '../redux/timerSlice';
 
 const Timer = () => {
-  //definisco lo stato 'time' inizializzato a 0, e la funzione per aggiornarlo
-  const [time, setTime] = useState(0);
+  
+  const timer = useSelector((state) => state.timer); //prendo lo stato del timer da Redux
+  const dispatch = useDispatch(); // dispatcher per inviare azioni
 
   //carico il valore da session storage al primo render con useEffect
   useEffect(() => {
@@ -10,27 +13,27 @@ const Timer = () => {
     //recupero il valore 'time' salvato nella sessione del browser (se esiste)
     if (storedTime) {
        //se esiste, aggiorno lo stato 'time' convertendo il valore da stringa a numero
-        setTime(parseInt(storedTime, 10));
+        dispatch(set(parseInt(storedTime, 10)));
     }
-  }, []);   //questo effetto viene eseguito solo una volta, al primo render (array di dipendenze vuoto)
+  }, [dispatch]);   //questo effetto viene eseguito solo una volta, al primo render (array di dipendenze vuoto)
 
-  //aggiorno il valore ogni secondo
+  // incremento ogni secondo
   useEffect(() => {
-    const interval = setInterval(() => { //creo un intervallo
-        setTime(prevTime => { //aggiorno il valore di 'time', la funzione riceve il valore precedente
-            const updated = prevTime + 1; //incremento il valore di 1
-            sessionStorage.setItem('time', updated); //salvo il nuovo valore in sessionStorage
-            return updated;
-        })
-    }, 1000); //imposto un intervallo di 1 secondo
+    const interval = setInterval(() => {
+      dispatch(increment());
+    }, 1000);
 
-    //quando il componente viene smontato, cancello l'intervallo
     return () => clearInterval(interval);
-  }, []);
+  }, [dispatch]);
+
+  // salvo in sessionStorage ogni volta che cambia
+  useEffect(() => {
+    sessionStorage.setItem("time", timer);
+  }, [timer]);
 
 
   return (
-    <h3 className='mb-4'>⏲️Tempo trascorso: {time} secondi⏲️</h3>
+    <h3 className='mb-4'>⏲️Tempo trascorso: {timer} secondi⏲️</h3>
   )
 
 }
