@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 //IN QUESTO FILE SPOSTO LA LOGICA DEL TIMER
 
 const timerSlice = createSlice({
-    name: "timer",
+    name: "timer", //nome dello slice
     initialState: 0, //stato iniziale a 0
-    reducers: {
-        increment: state => state + 1,
-        set: (_, action) => action.payload,
+    reducers: { //oggetto che contiene tutte le funzioni che modificano lo stato
+        increment: state => state + 1, //incrementa il valore del timer di 1
+        set: (_, action) => action.payload, //imposta il timer a un valore specifico passato nell'azione
     },
 });
 

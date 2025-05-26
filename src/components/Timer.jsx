@@ -5,7 +5,7 @@ import { increment, set } from '../redux/timerSlice';
 const Timer = () => {
   
   const timer = useSelector((state) => state.timer); //prendo lo stato del timer da Redux
-  const dispatch = useDispatch(); // dispatcher per inviare azioni
+  const dispatch = useDispatch(); //dispatch per per inviare azioni
 
   //carico il valore da session storage al primo render con useEffect
   useEffect(() => {
@@ -18,18 +18,18 @@ const Timer = () => {
   }, [dispatch]);   //questo effetto viene eseguito solo una volta, al primo render (array di dipendenze vuoto)
 
   // incremento ogni secondo
-  useEffect(() => {
-    const interval = setInterval(() => {
-      dispatch(increment());
+  useEffect(() => { //effetto che si esegue una sola volta al primo render
+    const interval = setInterval(() => { //intervallo che si ripete ogni secondo
+      dispatch(increment()); //dispatch serve per inviare l'azione increment al reducer del timer
     }, 1000);
 
     return () => clearInterval(interval);
   }, [dispatch]);
 
   // salvo in sessionStorage ogni volta che cambia
-  useEffect(() => {
-    sessionStorage.setItem("time", timer);
-  }, [timer]);
+  useEffect(() => { //esegue ogni volta che cambia il timer
+    sessionStorage.setItem("time", timer); //salvo il valore attuale di timer nel sessionStorage
+  }, [timer]); //passo timer come dipendenza
 
 
   return (
