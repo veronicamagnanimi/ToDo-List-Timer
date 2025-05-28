@@ -1,11 +1,26 @@
 <app-header></app-header>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="container mt-4">
+  <h1 class="my-4 text-center text-secondary">Attività della settimana</h1>
 
-<router-outlet></router-outlet>
+  <!-- componente per inserire una nuova task.
+    quando viene aggiunta, emette l'evento taskAdded che richiama il metodo addTask($event) -->
+  <app-tasks-input (taskAdded)="addTask($event)"></app-tasks-input>
+
+  <!-- componente che mostra la lista delle task
+  passo la lista delle task dal componente padre
+  toggleComplete e deleteTask sono eventi che richiamano i rispettivi metodi nel componente padre -->
+  <app-tasks-list
+    [tasks]="tasks"   
+    (toggleComplete)="toggleComplete($event)"
+    (deleteTask)="deleteTask($event)">
+  </app-tasks-list>
+
+  <!-- tutte le tasks completate
+  *ngIf esegue il controllo tramite la funzione allCompleted() -->
+  <div *ngIf="allCompleted()" class="text-center mt-4">
+    <p>🎉Hai completato tutte le task!🎉</p>
+  </div>
+</div>
+
+
