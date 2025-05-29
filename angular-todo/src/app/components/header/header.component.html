@@ -1,4 +1,10 @@
 <header class="header">
-<h3 class="py-4 text-center">⏲️ Tempo trascorso: {{ timer }} secondi ⏲️</h3>
+<h3 class="text-center py-2">⏲️ Tempo trascorso: {{ timer }} secondi ⏲️</h3>
+
+<!-- mostro il bottone solo se l'utente è autenticato,
+al click, chiamo il metodo logout del componente -->
+ <button *ngIf="authService.isAuthenticated()" (click)="logout()" class="btn btn-danger mb-2">
+    Logout
+  </button>
 </header>
 
