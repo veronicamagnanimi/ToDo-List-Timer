@@ -1,0 +1,30 @@
+<!-- onSubmit esegue il metodo quando il form viene inviato  -->
+<div class="task-input">
+  <form (ngSubmit)="onSubmit()">  
+    <input
+      type="text"
+      [(ngModel)]="taskText"
+      name="task"
+      placeholder="Aggiungi una nuova task"
+      required
+    />
+    <button type="submit" class="btn-add">Aggiungi</button>
+  </form>
+</div>
+
+<!-- tasks list -->
+<div class="task-list">
+  <ul>
+    <li *ngFor="let task of tasks">
+      <input
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleComplete(task.id)"
+      />
+      <span [class.completed]="task.completed">{{ task.text }}</span>
+      <button (click)="deleteTask(task.id)" class="btn-delete">Elimina</button>
+    </li>
+  </ul>
+
+  <div *ngIf="allCompleted()" class="text-center mt-3">🎉Tutte le task sono completate!</div>
+</div>

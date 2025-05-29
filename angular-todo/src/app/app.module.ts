@@ -4,15 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TasksListComponent } from './components/tasks-list/tasks-list.component';
-import { TasksInputComponent } from './components/tasks-input/tasks-input.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TasksListComponent,
-    TasksInputComponent
+    TasksComponent
   ],
   imports: [
     BrowserModule,
