@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { NotLoginComponent } from './components/not-login/not-login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     TasksComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NotLoginComponent
   ],
   imports: [
     BrowserModule,

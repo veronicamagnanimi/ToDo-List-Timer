@@ -3,7 +3,7 @@ import { CanActivate, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' //guard disponibile in tutta l'app
 })
 
 export class AuthGuard implements CanActivate {
@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAuthenticated()) {
       return true; //se è autenticato, restituisco true
     } else {
-      return this.router.createUrlTree(['/login']); //redireziono alla login
+      return this.router.createUrlTree(['/not-login']); //reindirizzo al login
       //urlTree è un oggetto che rappresenta una navigazione verso una certa rotta senza eseguire subito il redirect
     }
   }
