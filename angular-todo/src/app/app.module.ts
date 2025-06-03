@@ -8,6 +8,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotLoginComponent } from './components/not-login/not-login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NotLoginComponent } from './components/not-login/not-login.component';
     TasksComponent,
     HomeComponent,
     LoginComponent,
-    NotLoginComponent
+    NotLoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
